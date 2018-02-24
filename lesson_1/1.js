@@ -1,13 +1,13 @@
 /* Написать функцию, которая проверит правильность расстановки круглых скобок во введенной строке.
 принимает в себя строку и возвращает true или false в зависимости от того,
-правильно ли расставлены скобки в строке. */
+правильно ли расставлены скобки в строке.  */
 
 function fun(str) {
 
   //создаем массив из строки, потом фильтруем(оставляем только скобки)
   //потом открывающую скобку заменяем 1, закрывающуюю -1
 
-  var arr = str.split('').filter((item) => item === ')' || item === '(')
+  const arr = str.split('').filter((item) => item === ')' || item === '(')
 
   //создаем функцию find, которая будет возвращать индекс первой найденной закрывающей скобки,
   //начиная с того индекса, который мы туда передали в массиве, который мы передали
@@ -25,7 +25,7 @@ function fun(str) {
 
   for (var i = 0; i < arr.length; i++) {
     if (arr[i] === '(') {
-      var index = find(i, arr);
+      const index = find(i, arr);
       if (index) {
         arr[i] = arr[index] = 0;
       } else return false;
@@ -37,4 +37,4 @@ function fun(str) {
   return arr.every(item => item === 0);
 }
 
-console.log(fun(prompt('enter the string')));
+alert(fun(prompt('enter the string')));
