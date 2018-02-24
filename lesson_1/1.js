@@ -3,38 +3,13 @@
 правильно ли расставлены скобки в строке.  */
 
 function fun(str) {
-
-  //создаем массив из строки, потом фильтруем(оставляем только скобки)
-  //потом открывающую скобку заменяем 1, закрывающуюю -1
-
-  const arr = str.split('').filter((item) => item === ')' || item === '(')
-
-  //создаем функцию find, которая будет возвращать индекс первой найденной закрывающей скобки,
-  //начиная с того индекса, который мы туда передали в массиве, который мы передали
-  //если не найдено ничего, то возвращаем null
-
-  function find(index, arr) {
-    for (var i = index; i < arr.length; i++) {
-      if (arr[i] === ')') return i;
-    }
-    return null;
+  var opening = 0; //кол-во открывающих скобок
+  var ending = 0; //кол-во закрывающих скобок
+  for (var i = 0; i < str.length; i++) {
+    if (str[i] === '(') opening++;
+    else if (str[i] === ')') ending++;
+    if (ending > opening) return false;
   }
-
-  //бежим по массиву и для каждой открывающей скобки пытаемся найти закрывающую (расположенную правее),
-  //если находим, то заменяем обе скобки на 0
-
-  for (var i = 0; i < arr.length; i++) {
-    if (arr[i] === '(') {
-      const index = find(i, arr);
-      if (index) {
-        arr[i] = arr[index] = 0;
-      } else return false;
-    }
-  }
-
-  //если по итогу каждый элемент массива не равен нулю, то скобки расставлены неправильно
-
-  return arr.every(item => item === 0);
+  return ending === opening;
 }
-
 alert(fun(prompt('enter the string')));
