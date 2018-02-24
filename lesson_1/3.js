@@ -3,7 +3,6 @@
 
 //создаем множество операций, с которыми мы будем работать
 
-const operations = new Set(['+', '-', '/', '*', '^']);
 
 //создаем объект, в котором ключ это символ операции, а значение - функция,
 //которую применяет операцию к ее аргументам
@@ -22,9 +21,9 @@ while(1) {
 
   //вводим символ операции до тех пор, пока множество операций не будет содержать его
 
-  while (!operations.has(oper)) {
+  while (!obj[oper]) {
     oper = prompt('Enter the operation');
-    if (!operations.has(oper)) alert('Incorrect operation');
+    if (!obj[oper]) alert('Incorrect operation');
   }
   const second = +prompt('Enter the second number');
 
