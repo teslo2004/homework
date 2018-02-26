@@ -3,9 +3,9 @@
 правильно ли расставлены скобки в строке.  */
 
 function fun(str) {
-  var opening = 0; //кол-во открывающих скобок
-  var ending = 0; //кол-во закрывающих скобок
-  for (var i = 0; i < str.length; i++) {
+  let opening = 0; //кол-во открывающих скобок
+  let ending = 0; //кол-во закрывающих скобок
+  for (let i = 0; i < str.length; i++) {
     if (str[i] === '(') opening++;
     else if (str[i] === ')') ending++;
     if (ending > opening) return false;
