@@ -9,7 +9,7 @@ const obj = {
   '-': (first, second) => first - second,
   '*': (first, second) => first * second,
   '/': (first, second) => first / second,
-  '^': (first, second) => first**second
+  '^': (first, second) => first ** second
 }
 
 while(1) {
