@@ -4,4 +4,4 @@ const interval = window.setInterval(() => {
   scrollTo(0, i);
   i += 2;
   if (i > width) clearInterval(interval);
-}, 1);
+}, 25);
