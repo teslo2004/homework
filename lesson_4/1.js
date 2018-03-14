@@ -17,7 +17,7 @@ console.log("addres: ");
 console.log(addreses2.match(buildings));
 /* Будем считать html-тегом все, что имеет такую структуру:
 "<название>"  */
-let tag = /<([a-zA-Z]*\d?)>/;
+let tag = /<([a-zA-Z]+\d?)>/;
 let html = "<h1>Hello, world!</h1>";
 console.log("tag: ");
 console.log(html.match(tag));
