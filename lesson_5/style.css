@@ -1,0 +1,19 @@
+.messages {
+    position: fixed;
+    right: 50px;
+    bottom: 30px;
+    font-size: 20px;
+    background-color: silver;
+    width: 300px;
+    height: 400px; 
+}
+
+.messages ul {    
+    position: absolute;
+    bottom: 0px;
+    list-style: none;    
+}
+
+.messages ul li {    
+    margin: 5px;    
+}
