@@ -6,6 +6,7 @@
     background-color: silver;
     width: 300px;
     height: 400px; 
+    overflow-y: scroll;
 }
 
 .messages ul {    
