@@ -10,12 +10,22 @@ const obj = {
 }
 const operations = document.querySelectorAll(".operation");
 const digits = document.querySelectorAll(".digit");
-const clear = document.getElementById("clear");
+//const clear = document.getElementById("clear");
 const equal = document.getElementById("equal");
-const exit = document.getElementById("exit");
+const reset = document.getElementById("reset");
 const addToMemory = document.getElementById("addToMemory");
 const takeFromMemory = document.getElementById("takeFromMemory");
 const clearMemory = document.getElementById("clearMemory");
+const elements = document.querySelectorAll("tbody tr *");
+elements.forEach( function(item) {
+  item.addEventListener("mousedown", function() {
+    this.setAttribute("class", "red");
+  });
+  item.addEventListener("mouseup", function() {
+    this.removeAttribute("class");
+  });
+
+} )
 
 let first = "", second = "";
 let operation = "";
@@ -23,8 +33,9 @@ let memory = 0;
 
 digits.forEach( function(digit) {
   digit.addEventListener("click", function() {
-      first += digit.innerText;
-      display.innerHTML += digit.innerText;
+      if (display.innerHTML == second) display.innerHTML = "";
+      first += digit.innerHTML;
+      display.innerHTML += digit.innerHTML;
   } )
 })
 
@@ -37,15 +48,11 @@ operations.forEach( function(item) {
     } else {
       second = first;
     }
-    operation = item.innerText;
+    operation = item.innerHTML;
     first = "";
   })
 } )
 
-clear.addEventListener("click", function() {
-  first = "";
-  display.innerHTML = "";
-})
 
 equal.addEventListener("click", function() {
   if (second) {
@@ -55,15 +62,16 @@ equal.addEventListener("click", function() {
   }
 })
 
-exit.addEventListener("click", function() {
+reset.addEventListener("click", function() {
   first = "";
   second = "";
   operation = "";
+  memory = 0;
   display.innerHTML = "";
 })
 
 addToMemory.addEventListener("click", function() {
-  memory += +display.innerText;
+  memory += +display.innerHTML;
   display.innerHTML = "";
 })
 
