@@ -12,25 +12,26 @@ const randomItem = arr => {
   return random(arr.length - 1, 0);
 }
 
-const addCell = (data, parent, button) => {
+const addCell = (data, parent) => {
   const td = document.createElement("td");
   parent.appendChild(td);
   td.innerHTML = data;
-  if (button) {
-    td.innerHTML += "<input type='button' value='showname'></input>"
-    const button = td.children[0];
-    button.addEventListener("click", function() {
-      alert(td.previousSibling.innerText);
-    })
-  }
 }
-const addRow = parent => {
-  const tr = document.createElement("tr");
-  parent.appendChild(tr);
-  addCell(names[randomItem(names)], tr, 0);
-  addCell(descriptions[randomItem(descriptions)], tr, 1);
+
+const addButtonValue = (node, nodeValue) => {
+  const button = document.createElement("input");
+  button.setAttribute("type", "button");
+  button.setAttribute("value", "showname");
+  node.appendChild(button);
+  button.addEventListener("click", function() {
+    alert(nodeValue.innerText);
+  })
 }
 
 for (let i = 0; i < 10; i++) {
-  addRow(tbody);
+  const tr = document.createElement("tr");
+  tbody.appendChild(tr);
+  addCell(names[randomItem(names)], tr);
+  addCell(descriptions[randomItem(descriptions)], tr);
+  addButtonValue(tr.children[1], tr.children[0]);
 }

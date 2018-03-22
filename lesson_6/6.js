@@ -1,16 +1,17 @@
 //Создайте рабочий интерфейс карманного калькулятора с памятью.
-
-const display = document.querySelector(".display");
-const tbody = document.querySelector("tbody");
+//
 const obj = {
   '+': (first, second) => first + second,
   '-': (first, second) => first - second,
   '*': (first, second) => first * second,
   '/': (first, second) => first / second,
 }
+
+const display = document.getElementById("display");
+const displayOperation = document.getElementById("operation");
+const tbody = document.querySelector("tbody");
 const operations = document.querySelectorAll(".operation");
 const digits = document.querySelectorAll(".digit");
-//const clear = document.getElementById("clear");
 const equal = document.getElementById("equal");
 const reset = document.getElementById("reset");
 const addToMemory = document.getElementById("addToMemory");
@@ -29,7 +30,7 @@ elements.forEach( function(item) {
 
 let first = "", second = "";
 let operation = "";
-let memory = 0;
+let memory = null;
 
 digits.forEach( function(digit) {
   digit.addEventListener("click", function() {
@@ -42,6 +43,7 @@ digits.forEach( function(digit) {
 operations.forEach( function(item) {
   item.addEventListener("click", function() {
     display.innerHTML = "";
+    displayOperation.innerHTML = this.innerHTML;
     if (second) {
       second = obj[operation](+second, +first);
       display.innerHTML = second;
@@ -66,12 +68,14 @@ reset.addEventListener("click", function() {
   first = "";
   second = "";
   operation = "";
-  memory = 0;
+  memory = null;
   display.innerHTML = "";
+  displayOperation.innerHTML = "";
 })
 
 addToMemory.addEventListener("click", function() {
-  memory += +display.innerHTML;
+  if (memory == null) memory = +first;
+  else memory += +first;
   display.innerHTML = "";
 })
 
@@ -81,5 +85,5 @@ takeFromMemory.addEventListener("click", function() {
 })
 
 clearMemory.addEventListener("click", function() {
-  memory = 0;
+  memory = null;
 })
