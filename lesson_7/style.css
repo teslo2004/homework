@@ -3,3 +3,7 @@ td {
     height: 60px;
     border: 1px solid black;
 }
+
+#email {
+  font-size: 30px;
+}
