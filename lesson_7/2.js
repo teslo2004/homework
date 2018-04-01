@@ -6,13 +6,20 @@ const input = document.getElementById("email");
 input.addEventListener("keydown", function(e) {
   key = e.key;
   value = this.value;
-  if (value[value.length-1] == '@' && key == '@') {
+  let reg = /[\da-zA-Z@\.\-_]/;
+  if (!key.match(reg)) {
+    e.preventDefault();
+  }
+  if (value.match(/@/) && key == '@') {
     e.preventDefault();
   }
   if (value[value.length-1] == '.' && key == '.') {
     e.preventDefault();
   }
-  if (value.length == 0 && Number(key)) {
+  if (value.length === 0 && Number(key)) {
+    e.preventDefault();
+  }
+  if (value.match(/@/) && value.match(/@.{0,}\./) && key === ".") {
     e.preventDefault();
   }
 });
