@@ -16,7 +16,7 @@ input.addEventListener("keydown", function(e) {
   if (value[value.length-1] == '.' && key == '.') {
     e.preventDefault();
   }
-  if (value.length === 0 && Number(key)) {
+  if (value.length === 0 && key.match(/[\d@\-_]/)) {
     e.preventDefault();
   }
   if (value.match(/@/) && value.match(/@.{0,}\./) && key === ".") {
