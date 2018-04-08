@@ -1,7 +1,6 @@
 * {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 #menu {
   border: 1px solid red;
   width: 150px;
@@ -22,22 +21,52 @@
       cursor: pointer;
     }
 
-
-
-
-table {
-  border-spacing: 0px;
-}
-td {
-  width: 15px;
-  height: 15px;
-}
 .target {
   background-color: red;
 }
 .block {
   background-color: black;
 }
-.finish {
+.end {
   background-color: green;
+}
+table {
+  border-spacing: 0px;
+}
+td {
+  background-color: purple;
+  width: 15px;
+  height: 15px;
+
+}
+
+.card {
+  background-image: url("back.jpeg");
+  width: 182px;
+  height: 278px;
+  margin: 15px;
+  float: left;
+}
+
+.card1 {
+  background-color: red;
+}
+.card2 {
+  background-color: pink;
+}
+.card3 {
+  background-color: gray;
+}
+.card4 {
+  background-color: orange;
+}
+.card5 {
+  background-color: purple;
+}
+.card6 {
+  background-color: black;
+}
+
+.opened {
+  background-image: none;
 }
